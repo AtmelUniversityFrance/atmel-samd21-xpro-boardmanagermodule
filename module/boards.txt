@@ -1,0 +1,179 @@
+# Copyright (c) 2015 Atmel Corp./Thibaut VIARD. All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+#--------------------------------------------------------------------------------------#
+#                                SAM D21
+#--------------------------------------------------------------------------------------#
+Atmel_SAMD21_XplainedPro_edbg.name=Atmel SAMD21 Xplained Pro (via EDBG)
+Atmel_SAMD21_XplainedPro_edbg.vid.0=0x03eb
+Atmel_SAMD21_XplainedPro_edbg.pid.0=0x2111
+Atmel_SAMD21_XplainedPro_edbg.upload.tool=arduino:openocd
+Atmel_SAMD21_XplainedPro_edbg.upload.protocol=swd
+Atmel_SAMD21_XplainedPro_edbg.upload.maximum_size=262144
+Atmel_SAMD21_XplainedPro_edbg.upload.use_1200bps_touch=false
+Atmel_SAMD21_XplainedPro_edbg.upload.wait_for_upload_port=false
+Atmel_SAMD21_XplainedPro_edbg.upload.native_usb=false
+Atmel_SAMD21_XplainedPro_edbg.build.mcu=cortex-m0plus
+Atmel_SAMD21_XplainedPro_edbg.build.f_cpu=48000000L
+Atmel_SAMD21_XplainedPro_edbg.build.usb_product="Atmel SAMD21-XPRO"
+Atmel_SAMD21_XplainedPro_edbg.build.usb_manufacturer="Atmel Corp"
+Atmel_SAMD21_XplainedPro_edbg.build.board=SAMD_ATMEL_SAMD21_XPRO_V1
+Atmel_SAMD21_XplainedPro_edbg.build.core=arduino:arduino
+Atmel_SAMD21_XplainedPro_edbg.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+Atmel_SAMD21_XplainedPro_edbg.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+Atmel_SAMD21_XplainedPro_edbg.build.openocdscript=openocd_scripts/variant_atmel_ice.cfg
+Atmel_SAMD21_XplainedPro_edbg.build.variant=atmel_samd21_xpro_v1
+Atmel_SAMD21_XplainedPro_edbg.build.variant_system_lib=
+Atmel_SAMD21_XplainedPro_edbg.build.vid=0x2341
+Atmel_SAMD21_XplainedPro_edbg.build.pid=0x804d
+Atmel_SAMD21_XplainedPro_edbg.bootloader.tool=arduino:openocd
+Atmel_SAMD21_XplainedPro_edbg.bootloader.file=atmel_samd21_xpro_v1/samd21_sam_ba.bin
+
+#--------------------------------------------------------------------------------------#
+Atmel_SAMD21_XplainedPro_native.name=Atmel SAMD21 Xplained Pro (Native USB Port)
+Atmel_SAMD21_XplainedPro_native.vid.0=0x03eb
+Atmel_SAMD21_XplainedPro_native.pid.0=0x6124
+Atmel_SAMD21_XplainedPro_native.vid.1=0x2341
+Atmel_SAMD21_XplainedPro_native.pid.1=0x004d
+Atmel_SAMD21_XplainedPro_native.upload.tool=arduino:bossac
+Atmel_SAMD21_XplainedPro_native.upload.protocol=sam-ba
+Atmel_SAMD21_XplainedPro_native.upload.maximum_size=262144
+Atmel_SAMD21_XplainedPro_native.upload.use_1200bps_touch=true
+Atmel_SAMD21_XplainedPro_native.upload.wait_for_upload_port=true
+Atmel_SAMD21_XplainedPro_native.upload.native_usb=true
+Atmel_SAMD21_XplainedPro_native.build.mcu=cortex-m0plus
+Atmel_SAMD21_XplainedPro_native.build.f_cpu=48000000L
+Atmel_SAMD21_XplainedPro_native.build.usb_product="Atmel SAMD21-XPRO"
+Atmel_SAMD21_XplainedPro_native.build.usb_manufacturer="Atmel Corp"
+Atmel_SAMD21_XplainedPro_native.build.board=SAMD_ATMEL_SAMD21_XPRO_V1
+Atmel_SAMD21_XplainedPro_native.build.core=arduino:arduino
+Atmel_SAMD21_XplainedPro_native.build.extra_flags=-D__SAMD21J18A__ {build.usb_flags}
+Atmel_SAMD21_XplainedPro_native.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+Atmel_SAMD21_XplainedPro_native.build.openocdscript=
+Atmel_SAMD21_XplainedPro_native.build.variant=atmel_samd21_xpro_v1
+Atmel_SAMD21_XplainedPro_native.build.variant_system_lib=
+Atmel_SAMD21_XplainedPro_native.build.vid=0x2341
+Atmel_SAMD21_XplainedPro_native.build.pid=0x804d
+
+#--------------------------------------------------------------------------------------#
+#                                SAM W25
+#--------------------------------------------------------------------------------------#
+Atmel_SAMW25_XplainedPro_edbg.name=Atmel SAMW25 Xplained Pro (via EDBG)
+Atmel_SAMW25_XplainedPro_edbg.vid.0=0x03eb
+Atmel_SAMW25_XplainedPro_edbg.pid.0=0x2111
+Atmel_SAMW25_XplainedPro_edbg.upload.tool=arduino:openocd
+Atmel_SAMW25_XplainedPro_edbg.upload.protocol=swd
+Atmel_SAMW25_XplainedPro_edbg.upload.maximum_size=262144
+Atmel_SAMW25_XplainedPro_edbg.upload.use_1200bps_touch=false
+Atmel_SAMW25_XplainedPro_edbg.upload.wait_for_upload_port=false
+Atmel_SAMW25_XplainedPro_edbg.upload.native_usb=false
+Atmel_SAMW25_XplainedPro_edbg.build.mcu=cortex-m0plus
+Atmel_SAMW25_XplainedPro_edbg.build.f_cpu=48000000L
+Atmel_SAMW25_XplainedPro_edbg.build.usb_product="Atmel SAMW25-XPRO"
+Atmel_SAMW25_XplainedPro_edbg.build.usb_manufacturer="Atmel Corp"
+Atmel_SAMW25_XplainedPro_edbg.build.board=SAMD_ATMEL_SAMW25_XPRO
+Atmel_SAMW25_XplainedPro_edbg.build.core=arduino:arduino
+Atmel_SAMW25_XplainedPro_edbg.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+Atmel_SAMW25_XplainedPro_edbg.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+Atmel_SAMW25_XplainedPro_edbg.build.openocdscript=openocd_scripts/variant_atmel_ice.cfg
+Atmel_SAMW25_XplainedPro_edbg.build.variant=atmel_samw25_xpro
+Atmel_SAMW25_XplainedPro_edbg.build.variant_system_lib=
+Atmel_SAMW25_XplainedPro_edbg.build.vid=0x2341
+Atmel_SAMW25_XplainedPro_edbg.build.pid=0x804d
+Atmel_SAMW25_XplainedPro_edbg.bootloader.tool=arduino:openocd
+Atmel_SAMW25_XplainedPro_edbg.bootloader.file=atmel_samw25_xpro/samd21_sam_ba.bin
+
+#--------------------------------------------------------------------------------------#
+Atmel_SAMW25_XplainedPro_native.name=Atmel SAMW25 Xplained Pro (Native USB Port)
+Atmel_SAMW25_XplainedPro_native.vid.0=0x03eb
+Atmel_SAMW25_XplainedPro_native.pid.0=0x6124
+Atmel_SAMW25_XplainedPro_native.vid.1=0x2341
+Atmel_SAMW25_XplainedPro_native.pid.1=0x004d
+Atmel_SAMW25_XplainedPro_native.upload.tool=arduino:bossac
+Atmel_SAMW25_XplainedPro_native.upload.protocol=sam-ba
+Atmel_SAMW25_XplainedPro_native.upload.maximum_size=262144
+Atmel_SAMW25_XplainedPro_native.upload.use_1200bps_touch=true
+Atmel_SAMW25_XplainedPro_native.upload.wait_for_upload_port=true
+Atmel_SAMW25_XplainedPro_native.upload.native_usb=true
+Atmel_SAMW25_XplainedPro_native.build.mcu=cortex-m0plus
+Atmel_SAMW25_XplainedPro_native.build.f_cpu=48000000L
+Atmel_SAMW25_XplainedPro_native.build.usb_product="Atmel SAMW25-XPRO"
+Atmel_SAMW25_XplainedPro_native.build.usb_manufacturer="Atmel Corp"
+Atmel_SAMW25_XplainedPro_native.build.board=SAMD_ATMEL_SAMW25_XPRO
+Atmel_SAMW25_XplainedPro_native.build.core=arduino:arduino
+Atmel_SAMW25_XplainedPro_native.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+Atmel_SAMW25_XplainedPro_native.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+Atmel_SAMW25_XplainedPro_native.build.openocdscript=
+Atmel_SAMW25_XplainedPro_native.build.variant=atmel_samw25_xpro
+Atmel_SAMW25_XplainedPro_native.build.variant_system_lib=
+Atmel_SAMW25_XplainedPro_native.build.vid=0x2341
+Atmel_SAMW25_XplainedPro_native.build.pid=0x804d
+
+#--------------------------------------------------------------------------------------#
+#                                SAM R21
+#--------------------------------------------------------------------------------------#
+#Atmel_SAMR21_XplainedPro_edbg.name=Atmel SAMR21 Xplained Pro (via EDBG)
+#Atmel_SAMR21_XplainedPro_edbg.vid.0=0x03eb
+#Atmel_SAMR21_XplainedPro_edbg.pid.0=0x2111
+#Atmel_SAMR21_XplainedPro_edbg.upload.tool=arduino:openocd
+#Atmel_SAMR21_XplainedPro_edbg.upload.protocol=swd
+#Atmel_SAMR21_XplainedPro_edbg.upload.maximum_size=262144
+#Atmel_SAMR21_XplainedPro_edbg.upload.use_1200bps_touch=false
+#Atmel_SAMR21_XplainedPro_edbg.upload.wait_for_upload_port=false
+#Atmel_SAMR21_XplainedPro_edbg.upload.native_usb=false
+#Atmel_SAMR21_XplainedPro_edbg.build.mcu=cortex-m0plus
+#Atmel_SAMR21_XplainedPro_edbg.build.f_cpu=48000000L
+#Atmel_SAMR21_XplainedPro_edbg.build.usb_product="Atmel SAMR21-XPRO"
+#Atmel_SAMR21_XplainedPro_edbg.build.usb_manufacturer="Atmel Corp"
+#Atmel_SAMR21_XplainedPro_edbg.build.board=SAMD_ATMEL_SAMR21_XPRO
+#Atmel_SAMR21_XplainedPro_edbg.build.core=arduino:arduino
+#Atmel_SAMR21_XplainedPro_edbg.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+#Atmel_SAMR21_XplainedPro_edbg.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+#Atmel_SAMR21_XplainedPro_edbg.build.openocdscript=openocd_scripts/variant_atmel_ice.cfg
+#Atmel_SAMR21_XplainedPro_edbg.build.variant=atmel_samr21_xpro
+#Atmel_SAMR21_XplainedPro_edbg.build.variant_system_lib=
+#Atmel_SAMR21_XplainedPro_edbg.build.vid=0x2341
+#Atmel_SAMR21_XplainedPro_edbg.build.pid=0x804d
+#Atmel_SAMR21_XplainedPro_edbg.bootloader.tool=arduino:openocd
+#Atmel_SAMR21_XplainedPro_edbg.bootloader.file=atmel_samr21_xpro/samd21_sam_ba.bin
+
+#--------------------------------------------------------------------------------------#
+#Atmel_SAMR21_XplainedPro_native.name=Atmel SAMR21 Xplained Pro (Native USB Port)
+#Atmel_SAMR21_XplainedPro_native.vid.0=0x03eb
+#Atmel_SAMR21_XplainedPro_native.pid.0=0x6124
+#Atmel_SAMR21_XplainedPro_native.vid.1=0x2341
+#Atmel_SAMR21_XplainedPro_native.pid.1=0x004d
+#Atmel_SAMR21_XplainedPro_native.upload.tool=arduino:bossac
+#Atmel_SAMR21_XplainedPro_native.upload.protocol=sam-ba
+#Atmel_SAMR21_XplainedPro_native.upload.maximum_size=262144
+#Atmel_SAMR21_XplainedPro_native.upload.use_1200bps_touch=true
+#Atmel_SAMR21_XplainedPro_native.upload.wait_for_upload_port=true
+#Atmel_SAMR21_XplainedPro_native.upload.native_usb=true
+#Atmel_SAMR21_XplainedPro_native.build.mcu=cortex-m0plus
+#Atmel_SAMR21_XplainedPro_native.build.f_cpu=48000000L
+#Atmel_SAMR21_XplainedPro_native.build.usb_product="Atmel SAMR21-XPRO"
+#Atmel_SAMR21_XplainedPro_native.build.usb_manufacturer="Atmel Corp"
+#Atmel_SAMR21_XplainedPro_native.build.board=SAMD_ATMEL_SAMR21_XPRO
+#Atmel_SAMR21_XplainedPro_native.build.core=arduino:arduino
+#Atmel_SAMR21_XplainedPro_native.build.extra_flags=-D__SAMD21G18A__ {build.usb_flags}
+#Atmel_SAMR21_XplainedPro_native.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+#Atmel_SAMR21_XplainedPro_native.build.openocdscript=
+#Atmel_SAMR21_XplainedPro_native.build.variant=atmel_samr21_xpro
+#Atmel_SAMR21_XplainedPro_native.build.variant_system_lib=
+#Atmel_SAMR21_XplainedPro_native.build.vid=0x2341
+#Atmel_SAMR21_XplainedPro_native.build.pid=0x804d
+
+#--------------------------------------------------------------------------------------#

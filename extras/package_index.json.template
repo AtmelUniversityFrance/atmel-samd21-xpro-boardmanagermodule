@@ -1,0 +1,64 @@
+{
+  "packages":
+  [
+    {
+      "name": "atmel-samd21-xpros",
+      "maintainer": "Atmel University France",
+      "websiteURL": "https://github.com/AtmelUniversityFrance/atmel-samd21-xpro-boardmanagermodule/wiki",
+      "help":
+      {
+        "online": "http://www.arduino.cc/en/Reference/HomePage"
+      },
+      "platforms":
+      [
+        {
+          "name": "Atmel SAMD21 Xplained-pros",
+          "architecture": "samd",
+          "version": "%%VERSION%%",
+          "category": "Contributed",
+          "url": "https://github.com/AtmelUniversityFrance/atmel-samd21-xpro-boardmanagermodule/releases/download/v%%VERSION%%/%%FILENAME%%",
+          "archiveFileName": "%%FILENAME%%",
+          "checksum": "SHA-256:%%CHECKSUM%%",
+          "size": "%%SIZE%%",
+          "boards": [
+            {
+              "name": "atmel_samd21_xpro_v1"
+            },
+            {
+              "name": "atmel_samr21_xpro"
+            },
+            {
+              "name": "atmel_samw25_xpro"
+            }
+          ],
+          "toolsDependencies":
+          [
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "4.8.3-2014q1"
+            },
+            {
+              "packager": "arduino",
+              "name": "bossac",
+              "version": "1.6.1-arduino"
+            },
+            {
+              "packager": "arduino",
+              "name": "openocd",
+              "version": "0.9.0-arduino"
+            },
+            {
+              "packager": "arduino",
+              "name": "CMSIS",
+              "version": "4.0.0-atmel"
+            }
+          ]
+        }
+      ],
+      "tools":
+      [
+      ]
+    }
+  ]
+}
