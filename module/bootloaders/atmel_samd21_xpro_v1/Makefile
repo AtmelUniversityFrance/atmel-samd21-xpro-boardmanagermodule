@@ -130,7 +130,7 @@ $(HEX): $(ELF)
 	@echo Creating flash binary
 	"$(OBJCOPY)" -O ihex $(BUILD_PATH)/$< $@
 
-$(BUILD_PATH)/%.o: $(PROJECT_PATH)/%.c
+$(BUILD_PATH)/%.o: $(BUILD_PATH) $(PROJECT_PATH)/%.c
 	@echo ----------------------------------------------------------
 	@echo Compiling $< to $@
 	"$(CC)" $(CFLAGS) $(CFLAGS_EXTRA) $(INCLUDES) "$<" -o $@
@@ -171,9 +171,9 @@ clean_for_atmel_studio:
 clean: $(AS_CLEAN)
 	@echo ----------------------------------------------------------
 	@echo Cleaning project
-	-$(RM) $(BIN)
-	-$(RM) $(HEX)
-	-$(RM) $(BUILD_PATH)/*.*
+	-$(RM) -f $(BIN)
+	-$(RM) -f $(HEX)
+	-$(RM) -f $(BUILD_PATH)/*
 	-rmdir $(BUILD_PATH)
 
 .PHONY: print_info $(BUILD_PATH) clean_for_atmel_studio
