@@ -51,10 +51,10 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (26u)
-#define NUM_DIGITAL_PINS     (14u)
-#define NUM_ANALOG_INPUTS    (6u)
-#define NUM_ANALOG_OUTPUTS   (1u)
+#define PINS_COUNT           (52ul)
+#define NUM_DIGITAL_PINS     (22ul)
+#define NUM_ANALOG_INPUTS    (6ul)
+#define NUM_ANALOG_OUTPUTS   (1ul)
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
 #define digitalPinToBitMask(P)     ( 1 << g_APinDescription[P].ulPin )
@@ -76,20 +76,24 @@ extern "C"
 // Interrupts
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
-// LEDs
-#define PIN_LED_13           (13ul)
+// LED(s)
+#define PIN_LED_13           (2ul)
 #define PIN_LED              PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
+
+// Button(s)
+#define PIN_BUTTON           (3ul)
+#define PIN_SW0              PIN_BUTTON
 
 /*
  * Analog pins
  */
-#define PIN_A0               (ul)
-#define PIN_A1               (ul)
-#define PIN_A2               (ul)
-#define PIN_A3               (ul)
-#define PIN_A4               (ul)
-#define PIN_A5               (ul)
+#define PIN_A0               (22ul)
+#define PIN_A1               (23ul)
+#define PIN_A2               (24ul)
+#define PIN_A3               (25ul)
+#define PIN_A4               (26ul)
+#define PIN_A5               (27ul)
 
 static const uint8_t A0  = PIN_A0 ;
 static const uint8_t A1  = PIN_A1 ;
@@ -102,25 +106,46 @@ static const uint8_t A5  = PIN_A5 ;
 /*
  * Serial interfaces
  */
+// Serial (EDBG)
+#define PIN_SERIAL_RX       (28ul)
+#define PIN_SERIAL_TX       (29ul)
+#define PAD_SERIAL_RX       (SERCOM_RX_PAD_1)
+#define PAD_SERIAL_TX       (UART_TX_PAD_0)
+
 // Serial1
 #define PIN_SERIAL1_RX       (0ul)
 #define PIN_SERIAL1_TX       (1ul)
-#define PAD_SERIAL1_TX       (UART_TX_PAD_2)
-#define PAD_SERIAL1_RX       (SERCOM_RX_PAD_3)
+#define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
+#define PAD_SERIAL1_TX       (UART_TX_PAD_0)
 
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1
+#define SPI_INTERFACES_COUNT 3
 
-#define PIN_SPI_MISO         (ul)
-#define PIN_SPI_MOSI         (ul)
-#define PIN_SPI_SCK          (ul)
-#define PERIPH_SPI           sercom4
+#define PIN_SPI_MOSI         (34ul)
+#define PIN_SPI_MISO         (35ul)
+#define PIN_SPI_SCK          (36ul)
+#define PIN_SPI_SS           (37ul)
+#define PERIPH_SPI           sercom0
 #define PAD_SPI_TX           SPI_PAD_2_SCK_3
 #define PAD_SPI_RX           SERCOM_RX_PAD_0
 
-#define PIN_SPI_SS           (25ul)
+#define PIN_SPI1_MOSI        (39ul)
+#define PIN_SPI1_MISO        (40ul)
+#define PIN_SPI1_SCK         (41ul)
+#define PIN_SPI1_SS          (42ul)
+#define PERIPH_SPI1          sercom1
+#define PAD_SPI1_TX          SPI_PAD_2_SCK_3
+#define PAD_SPI1_RX          SERCOM_RX_PAD_0
+
+#define PIN_SPI2_MOSI        (44ul)
+#define PIN_SPI2_MISO        (45ul)
+#define PIN_SPI2_SCK         (46ul)
+#define PIN_SPI2_SS          (47ul)
+#define PERIPH_SPI2          sercom5
+#define PAD_SPI2_TX          SPI_PAD_2_SCK_3
+#define PAD_SPI2_RX          SERCOM_RX_PAD_0
 
 static const uint8_t SS	  = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
@@ -132,17 +157,17 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (20ul)
-#define PIN_WIRE_SCL         (21ul)
-#define PERIPH_WIRE          sercom3
-#define WIRE_IT_HANDLER      SERCOM3_Handler
+#define PIN_WIRE_SDA         (33ul)
+#define PIN_WIRE_SCL         (32ul)
+#define PERIPH_WIRE          sercom2
+#define WIRE_IT_HANDLER      SERCOM2_Handler
 
 /*
  * USB
  */
-#define PIN_USB_HOST_ENABLE  (28ul)
-#define PIN_USB_DM           (29ul)
-#define PIN_USB_DP           (30ul)
+#define PIN_USB_DP           (49ul)
+#define PIN_USB_DM           (50ul)
+#define PIN_USB_HOST_ENABLE  (51ul)
 
 #ifdef __cplusplus
 }
