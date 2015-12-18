@@ -22,4 +22,4 @@
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.6.x-package_index.json-format-specification
 
 name=Atmel SAMD Xplained Pro
-version=0.1.0
+version=0.2.0
