@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="samd21_r21_w25_module" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="Cross GCC ( arm-none-eabi )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g -Wall" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O0" Required="yes">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="Debug"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="./Debug" PauseExecWhenProcTerminates="no" IsGUIProgram="no" IsEnabled="yes"/>
+      <Environment EnvVarSetName="&lt;Use Workspace Settings&gt;" DbgSetName="&lt;Use Global Settings&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName/>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+  <VirtualDirectory Name="module">
+    <VirtualDirectory Name="bootloaders">
+      <VirtualDirectory Name="atmel_samd21_xpro_v1">
+        <File Name="../module/bootloaders/atmel_samd21_xpro_v1/Makefile"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="atmel_samr21_xpro">
+        <File Name="../module/bootloaders/atmel_samr21_xpro/Makefile"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="atmel_samw25_xpro">
+        <File Name="../module/bootloaders/atmel_samw25_xpro/Makefile"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="libraries">
+      <VirtualDirectory Name="Getting-Started">
+        <File Name="../module/libraries/Getting-Started/Getting-Started.hpp"/>
+        <VirtualDirectory Name="examples">
+          <VirtualDirectory Name="blink">
+            <File Name="../module/libraries/Getting-Started/examples/blink/blink.ino"/>
+          </VirtualDirectory>
+          <VirtualDirectory Name="button_SW0">
+            <File Name="../module/libraries/Getting-Started/examples/button_SW0/button_SW0.ino"/>
+          </VirtualDirectory>
+        </VirtualDirectory>
+        <File Name="../module/libraries/Getting-Started/library.properties"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="variants">
+      <VirtualDirectory Name="atmel_samd21_xpro_v1">
+        <File Name="../module/variants/atmel_samd21_xpro_v1/pins_arduino.h"/>
+        <File Name="../module/variants/atmel_samd21_xpro_v1/variant.cpp"/>
+        <File Name="../module/variants/atmel_samd21_xpro_v1/variant.h"/>
+        <File Name="../module/variants/atmel_samd21_xpro_v1/variantInit.cpp"/>
+        <VirtualDirectory Name="debug_scripts">
+          <File Name="../module/variants/atmel_samd21_xpro_v1/debug_scripts/variant_edbg.gdb"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="linker_scripts">
+          <File Name="../module/variants/atmel_samd21_xpro_v1/linker_scripts/gcc/flash_with_bootloader.ld"/>
+          <File Name="../module/variants/atmel_samd21_xpro_v1/linker_scripts/gcc/flash_without_bootloader.ld"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="openocd_scripts">
+          <File Name="../module/variants/atmel_samd21_xpro_v1/openocd_scripts/variant_atmel_edbg.cfg"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="atmel_samr21_xpro">
+        <File Name="../module/variants/atmel_samr21_xpro/pins_arduino.h"/>
+        <File Name="../module/variants/atmel_samr21_xpro/variant.cpp"/>
+        <File Name="../module/variants/atmel_samr21_xpro/variant.h"/>
+        <File Name="../module/variants/atmel_samr21_xpro/variantInit.cpp"/>
+        <VirtualDirectory Name="debug_scripts">
+          <File Name="../module/variants/atmel_samr21_xpro/debug_scripts/variant_edbg.gdb"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="linker_scripts">
+          <File Name="../module/variants/atmel_samr21_xpro/linker_scripts/gcc/flash_with_bootloader.ld"/>
+          <File Name="../module/variants/atmel_samr21_xpro/linker_scripts/gcc/flash_without_bootloader.ld"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="openocd_scripts">
+          <File Name="../module/variants/atmel_samr21_xpro/openocd_scripts/variant_atmel_edbg.cfg"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="atmel_samw25_xpro">
+        <File Name="../module/variants/atmel_samw25_xpro/pins_arduino.h"/>
+        <File Name="../module/variants/atmel_samw25_xpro/variant.cpp"/>
+        <File Name="../module/variants/atmel_samw25_xpro/variant.h"/>
+        <File Name="../module/variants/atmel_samw25_xpro/variantInit.cpp"/>
+        <VirtualDirectory Name="debug_scripts">
+          <File Name="../module/variants/atmel_samw25_xpro/debug_scripts/variant_edbg.gdb"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="linker_scripts">
+          <File Name="../module/variants/atmel_samw25_xpro/linker_scripts/gcc/flash_with_bootloader.ld"/>
+          <File Name="../module/variants/atmel_samw25_xpro/linker_scripts/gcc/flash_without_bootloader.ld"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="openocd_scripts">
+          <File Name="../module/variants/atmel_samw25_xpro/openocd_scripts/variant_atmel_edbg.cfg"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <File Name="../module/boards.txt"/>
+    <File Name="../module/platform.txt"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="extras"/>
+</CodeLite_Project>
