@@ -41,7 +41,7 @@ const PinDescription g_APinDescription[]=
  * | 3          | N/A              |  PB23  | SW0             | EIC/EXTINT[7]                             SERCOM5_ALT/PAD[3]                            GCLK_IO[1]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
-  { PORTA, 23, PIO_DIGITAL, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM), No_ADC_Channel, PWM7_CH1, NOT_ON_TIMER, EXTERNAL_INT_14 }, // TC4/WO[1]
+  { PORTA, 23, PIO_DIGITAL, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM), No_ADC_Channel, PWM4_CH1, NOT_ON_TIMER, EXTERNAL_INT_14 }, // TC4/WO[1]
   { PORTB, 23, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_1 },
 
 /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
@@ -61,8 +61,8 @@ const PinDescription g_APinDescription[]=
 /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | Digital/PWM      |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 16         | PWM+             |  PA10  | EXT1_7          | EIC/EXTINT[10]  ADC/AIN[18]  PTC/X[2]  SERCOM0/PAD[2]                     *TCC0/WO[2]  TCC1_ALT/WO[0]
- * | 17         | PWM-             |  PA11  | EXT1_8          | EIC/EXTINT[11]  ADC/AIN[19]  PTC/X[3]  SERCOM0/PAD[3]  SERCOM2_ALT/PAD[3] *TCC0/WO[3]  TCC1_ALT/WO[1]
+ * | 8          | PWM+             |  PA10  | EXT1_7          | EIC/EXTINT[10]  ADC/AIN[18]  PTC/X[2]  SERCOM0/PAD[2]                     *TCC0/WO[2]  TCC1_ALT/WO[0]
+ * | 9          | PWM-             |  PA11  | EXT1_8          | EIC/EXTINT[11]  ADC/AIN[19]  PTC/X[3]  SERCOM0/PAD[3]  SERCOM2_ALT/PAD[3] *TCC0/WO[3]  TCC1_ALT/WO[1]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
 */
   { PORTA, 10, PIO_TIMER, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM|PIN_ATTR_TIMER), ADC_Channel18, PWM0_CH2, TCC0_CH2, EXTERNAL_INT_10 }, // TCC0/WO[2]
@@ -72,8 +72,8 @@ const PinDescription g_APinDescription[]=
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | Analog pins      |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 26         |                  |  PA02  | A0/EXT1_3       | EIC/EXTINT[2]                   *ADC/AIN[0]  DAC/VOUT  PTC/Y[0]
- * | 27         |                  |  PA03  | A1/EXT1_4       | EIC/EXTINT[3]   [ADC|DAC]/VREFA *ADC/AIN[1]            PTC/Y[1]
+ * | 10         |                  |  PA02  | A0/EXT1_3       | EIC/EXTINT[2]                   *ADC/AIN[0]  DAC/VOUT  PTC/Y[0]
+ * | 11         |                  |  PA03  | A1/EXT1_4       | EIC/EXTINT[3]   [ADC|DAC]/VREFA *ADC/AIN[1]            PTC/Y[1]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
   { PORTA,  2, PIO_ANALOG, PIN_ATTR_ANALOG, ADC_Channel0, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_2 }, // ADC/AIN[0] and also DAC/VOUT
@@ -83,8 +83,8 @@ const PinDescription g_APinDescription[]=
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | Serial           |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 28         |                  |  PB11  | EDBG_RX/EXT1_13 | EIC/EXTINT[11] *SERCOM4/PAD[3]  TC5/WO[1]  TCC0/WO[5]  I2S/SCK[1]  GCLK_IO[5]
- * | 29         |                  |  PA22  | EDBG_TX/EXT1_14 | EIC/EXTINT[10] *SERCOM4/PAD[2]  TC5/WO[0]  TCC0/WO[4]  I2S/MCK[1]  GCLK_IO[4]
+ * | 12         |                  |  PB11  | EDBG_RX/EXT1_13 | EIC/EXTINT[11] *SERCOM4/PAD[3]  TC5/WO[1]  TCC0/WO[5]  I2S/SCK[1]  GCLK_IO[5]
+ * | 13         |                  |  PA22  | EDBG_TX/EXT1_14 | EIC/EXTINT[10] *SERCOM4/PAD[2]  TC5/WO[0]  TCC0/WO[4]  I2S/MCK[1]  GCLK_IO[4]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
   { PORTB, 11, PIO_SERCOM, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 }, // RX: SERCOM4/PAD[3]
@@ -94,8 +94,8 @@ const PinDescription g_APinDescription[]=
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | Wire             |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 32         | SCL              |  PA09  | EXT1_11         | EIC/EXTINT[9]  ADC/AIN[17]  PTC/X[1] *SERCOM0/PAD[1]  SERCOM2_ALT/PAD[1]  TCC0/WO[1]  TCC1/WO[3]
- * | 33         | SDA              |  PA08  | EXT1_12         | EIC/NMI        ADC/AIN[16]  PTC/X[0] *SERCOM0/PAD[0]  SERCOM2_ALT/PAD[0]  TCC0/WO[0]  TCC1/WO[2]
+ * | 14         | SCL              |  PA09  | EXT1_11         | EIC/EXTINT[9]  ADC/AIN[17]  PTC/X[1] *SERCOM0/PAD[1]  SERCOM2_ALT/PAD[1]  TCC0/WO[1]  TCC1/WO[3]
+ * | 15         | SDA              |  PA08  | EXT1_12         | EIC/NMI        ADC/AIN[16]  PTC/X[0] *SERCOM0/PAD[0]  SERCOM2_ALT/PAD[0]  TCC0/WO[0]  TCC1/WO[2]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
   { PORTA,  9, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, ADC_Channel17, PWM0_CH1, TCC0_CH1, EXTERNAL_INT_9 }, // SCL:SERCOM0/PAD[1]
@@ -104,11 +104,11 @@ const PinDescription g_APinDescription[]=
 /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | SPI              |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 34         |                  |  PA18  | MOSI/EXT1_16    | EIC/EXTINT[2]  PTC/X[6] *SERCOM1/PAD[2]  SERCOM3_ALT/PAD[2]  TC3/WO[0]  TCC0_ALT/WO[2]  AC/CMP[0]
- * | 35         |                  |  PA16  | MISO/EXT1_17    | EIC/EXTINT[0]  PTC/X[4] *SERCOM1/PAD[0]  SERCOM3_ALT/PAD[0]  TCC2/WO[0]  TCC0_ALT/WO[6]  GCLK_IO[2]
- * | 36         |                  |  PA19  | SCK/EXT1_18     | EIC/EXTINT[3]  PTC/X[7] *SERCOM1/PAD[3]  SERCOM3_ALT/PAD[3]  TC3/WO[1]  TCC0_ALT/WO[3]  I2S/SD[0]  AC/CMP[1]
- * | 37         |                  |  PA17  | SS_A/EXT1_15    | EIC/EXTINT[1]  PTC/X[5] *SERCOM1/PAD[1]  SERCOM3_ALT/PAD[1]  TCC2/WO[1]  TCC0/WO[7]  GCLK_IO[3]
- * | 7          |                  |  PA21  | SS_B/EXT1_10    | EIC/EXTINT[5]  PTC/X[9]  SERCOM5/PAD[3]  SERCOM3_ALT/PAD[3]  TCC0_ALT/WO[7]  I2S/FS[0]  GCLK_IO[5]
+ * | 16         |                  |  PA18  | MOSI/EXT1_16    | EIC/EXTINT[2]  PTC/X[6] *SERCOM1/PAD[2]  SERCOM3_ALT/PAD[2]  TC3/WO[0]  TCC0_ALT/WO[2]  AC/CMP[0]
+ * | 17         |                  |  PA16  | MISO/EXT1_17    | EIC/EXTINT[0]  PTC/X[4] *SERCOM1/PAD[0]  SERCOM3_ALT/PAD[0]  TCC2/WO[0]  TCC0_ALT/WO[6]  GCLK_IO[2]
+ * | 18         |                  |  PA19  | SCK/EXT1_18     | EIC/EXTINT[3]  PTC/X[7] *SERCOM1/PAD[3]  SERCOM3_ALT/PAD[3]  TC3/WO[1]  TCC0_ALT/WO[3]  I2S/SD[0]  AC/CMP[1]
+ * | 19         |                  |  PA17  | SS_A/EXT1_15    | EIC/EXTINT[1]  PTC/X[5] *SERCOM1/PAD[1]  SERCOM3_ALT/PAD[1]  TCC2/WO[1]  TCC0/WO[7]  GCLK_IO[3]
+ * | 20         |                  |  PA21  | SS_B/EXT1_10    | EIC/EXTINT[5]  PTC/X[9]  SERCOM5/PAD[3]  SERCOM3_ALT/PAD[3]  TCC0_ALT/WO[7]  I2S/FS[0]  GCLK_IO[5]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
   { PORTA, 18, PIO_SERCOM, (PIN_ATTR_DIGITAL|PIN_ATTR_PWM|PIN_ATTR_TIMER), No_ADC_Channel, PWM3_CH0, TC3_CH0, EXTERNAL_INT_2 }, // SERCOM1/PAD[2]
@@ -118,16 +118,16 @@ const PinDescription g_APinDescription[]=
   { PORTA, 21, PIO_DIGITAL, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_5 }, // GPIO for alternate SPI/SS
 
 /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | Pin number | WINC1500         |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
+ * | Pin number | WINC1500/SPI1    |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 34         |                  |  PA12  | MOSI            | SERCOM2/PAD[0]
- * | 35         |                  |  PA15  | MISO            | SERCOM2/PAD[3]
- * | 36         |                  |  PA13  | SCK             | SERCOM2/PAD[1]
- * | 37         |                  |  PA14  | SS              | SERCOM2/PAD[2]
- * | 7          |                  |  PB09  | IRQN            | EIC/EXTINT[9] (or digital input?)
- * | 7          |                  |  PB08  | WAKE            | (digital output)
- * | 7          |                  |  PA27  | RESET           | (digital output)
- * | 7          |                  |  PA28  | CHIP_EN         | (digital output)
+ * | 21         |                  |  PA12  | MOSI            | SERCOM2/PAD[0]
+ * | 22         |                  |  PA15  | MISO            | SERCOM2/PAD[3]
+ * | 23         |                  |  PA13  | SCK             | SERCOM2/PAD[1]
+ * | 24         |                  |  PA14  | SS              | SERCOM2/PAD[2]
+ * | 25         |                  |  PB09  | IRQN            | EIC/EXTINT[9] (or digital input?)
+ * | 26         |                  |  PB08  | WAKE            | (digital output)
+ * | 27         |                  |  PA27  | RESET           | (digital output)
+ * | 28         |                  |  PA28  | CHIP_EN         | (digital output)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
   { PORTA, 12, PIO_SERCOM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // SERCOM2/PAD[0]
@@ -142,25 +142,27 @@ const PinDescription g_APinDescription[]=
 /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | USB              |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
- * | 49         |                  |  PA25  | USB_POSITIVE    | *USB/DP
- * | 50         |                  |  PA24  | USB_NEGATIVE    | *USB/DM
- * | 51         |                  |  PA04  | USB_HOST_ENABLE |
+ * | 30         |                  |  PA25  | USB_POSITIVE    | *USB/DP
+ * | 31         |                  |  PA24  | USB_NEGATIVE    | *USB/DM
+ * | 32         |                  |  PA05  | USB_HOST_ENABLE | USB/VBUS
+ * | 33         |                  |  PA04  | USB_ID          | USB/ID
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
 */
   { PORTA, 25, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/DP
   { PORTA, 24, PIO_COM, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/DM
-  { PORTA,  4, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB Host enable
+  { PORTA,  5, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/VBUS
+  { PORTA,  4, PIO_DIGITAL, PIN_ATTR_NONE, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_NONE }, // USB/ID
 } ;
 
-const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5, TC6, TC7 } ;
+const void* g_apTCInstances[TCC_INST_NUM+TC_INST_NUM]={ TCC0, TCC1, TCC2, TC3, TC4, TC5 } ;
 
 // Multi-serial objects instantiation
 SERCOM sercom0( SERCOM0 ) ;
 SERCOM sercom1( SERCOM1 ) ;
 SERCOM sercom2( SERCOM2 ) ;
-SERCOM sercom3( SERCOM3 ) ;
+//SERCOM sercom3( SERCOM3 ) ;
 SERCOM sercom4( SERCOM4 ) ;
-SERCOM sercom5( SERCOM5 ) ;
+//SERCOM sercom5( SERCOM5 ) ;
 
 Uart Serial( &sercom4, PIN_SERIAL_RX, PIN_SERIAL_TX, PAD_SERIAL_RX, PAD_SERIAL_TX ) ;
 
@@ -168,3 +170,5 @@ void SERCOM4_Handler(void)
 {
   Serial.IrqHandler();
 }
+
+//SPIClass WINC1500(&PERIPH_WINC1500, PIN_WINC1500_MISO, PIN_WINC1500_SCK, PIN_WINC1500_MOSI, PAD_WINC1500_TX, PAD_WINC1500_RX);

@@ -51,9 +51,9 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (26u)
+#define PINS_COUNT           (33u)
 #define NUM_DIGITAL_PINS     (14u)
-#define NUM_ANALOG_INPUTS    (6u)
+#define NUM_ANALOG_INPUTS    (2u)
 #define NUM_ANALOG_OUTPUTS   (1u)
 
 #define digitalPinToPort(P)        ( &(PORT->Group[g_APinDescription[P].ulPort]) )
@@ -76,51 +76,46 @@ extern "C"
 // Interrupts
 #define digitalPinToInterrupt(P)   ( g_APinDescription[P].ulExtInt )
 
-// LEDs
-#define PIN_LED_13           (13ul)
+// LED(s)
+#define PIN_LED_13           (2ul)
 #define PIN_LED              PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
+
+// Button(s)
+#define PIN_BUTTON           (3ul)
+#define PIN_SW0              PIN_BUTTON
 
 /*
  * Analog pins
  */
-#define PIN_A0               (ul)
-#define PIN_A1               (ul)
-#define PIN_A2               (ul)
-#define PIN_A3               (ul)
-#define PIN_A4               (ul)
-#define PIN_A5               (ul)
+#define PIN_A0               (10ul) // is also analog output (DAC)
+#define PIN_A1               (11ul)
 
 static const uint8_t A0  = PIN_A0 ;
 static const uint8_t A1  = PIN_A1 ;
-static const uint8_t A2  = PIN_A2 ;
-static const uint8_t A3  = PIN_A3 ;
-static const uint8_t A4  = PIN_A4 ;
-static const uint8_t A5  = PIN_A5 ;
 #define ADC_RESOLUTION		12
 
 /*
  * Serial interfaces
  */
-// Serial1
-#define PIN_SERIAL1_RX       (0ul)
-#define PIN_SERIAL1_TX       (1ul)
-#define PAD_SERIAL1_TX       (UART_TX_PAD_2)
-#define PAD_SERIAL1_RX       (SERCOM_RX_PAD_3)
+// Serial (EDBG)
+#define PIN_SERIAL_RX       (28ul)
+#define PIN_SERIAL_TX       (29ul)
+#define PAD_SERIAL_RX       (SERCOM_RX_PAD_3)
+#define PAD_SERIAL_TX       (UART_TX_PAD_2)
 
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1
+#define SPI_INTERFACES_COUNT 2
 
-#define PIN_SPI_MISO         (ul)
-#define PIN_SPI_MOSI         (ul)
-#define PIN_SPI_SCK          (ul)
-#define PERIPH_SPI           sercom4
+#define PIN_SPI_MOSI         (16ul)
+#define PIN_SPI_MISO         (17ul)
+#define PIN_SPI_SCK          (18ul)
+#define PIN_SPI_SS           (19ul)
+#define PERIPH_SPI           sercom1
 #define PAD_SPI_TX           SPI_PAD_2_SCK_3
 #define PAD_SPI_RX           SERCOM_RX_PAD_0
-
-#define PIN_SPI_SS           (25ul)
 
 static const uint8_t SS	  = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
@@ -132,17 +127,47 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (20ul)
-#define PIN_WIRE_SCL         (21ul)
-#define PERIPH_WIRE          sercom3
-#define WIRE_IT_HANDLER      SERCOM3_Handler
+#define PIN_WIRE_SCL         (14ul)
+#define PIN_WIRE_SDA         (15ul)
+#define PERIPH_WIRE          sercom0
+#define WIRE_IT_HANDLER      SERCOM0_Handler
 
 /*
  * USB
  */
-#define PIN_USB_HOST_ENABLE  (28ul)
-#define PIN_USB_DM           (29ul)
 #define PIN_USB_DP           (30ul)
+#define PIN_USB_DM           (31ul)
+#define PIN_USB_HOST_ENABLE  (32ul)
+#define PIN_USB_VBUS         PIN_USB_HOST_ENABLE
+#define PIN_USB_ID           (33ul)
+
+/*
+ * WiFi
+ */
+#define PIN_WINC1500_MOSI    (21ul)
+#define PIN_WINC1500_MISO    (22ul)
+#define PIN_WINC1500_SCK     (23ul)
+#define PIN_WINC1500_SS      (24ul)
+#define PERIPH_WINC1500      sercom2
+#define PAD_WINC1500_TX      SPI_PAD_2_SCK_3
+#define PAD_WINC1500_RX      SERCOM_RX_PAD_0
+
+#define PIN_WINC1500_IRQN    (25ul)
+#define PIN_WINC1500_WAKE    (26ul)
+#define PIN_WINC1500_RESET   (27ul)
+#define PIN_WINC1500_CHIP_EN (28ul)
+
+#define WINC1501_RESET_PIN   PIN_WINC1500_RESET
+#define WINC1501_INTN_PIN    PIN_WINC1500_IRQN
+#define WINC1501_CHIP_EN_PIN PIN_WINC1500_CHIP_EN
+
+#define PIN_SPI1_MOSI        PIN_WINC1500_MOSI
+#define PIN_SPI1_MISO        PIN_WINC1500_MISO
+#define PIN_SPI1_SCK         PIN_WINC1500_SCK
+#define PIN_SPI1_SS          PIN_WINC1500_SS
+#define PERIPH_SPI1          PERIPH_WINC1500
+#define PAD_SPI1_TX          PAD_WINC1500_TX
+#define PAD_SPI1_RX          PAD_WINC1500_RX
 
 #ifdef __cplusplus
 }
@@ -161,11 +186,16 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 extern SERCOM sercom0;
 extern SERCOM sercom1;
 extern SERCOM sercom2;
-extern SERCOM sercom3;
+//extern SERCOM sercom3;
 extern SERCOM sercom4;
-extern SERCOM sercom5;
+//extern SERCOM sercom5;
 
 extern Uart Serial;
+
+/*
+ * WiFi SPI
+ */
+//extern SPIClass WINC1500;
 
 #endif
 
@@ -186,9 +216,8 @@ extern Uart Serial;
 //                            pins are NOT connected to anything by default.
 #define SERIAL_PORT_USBVIRTUAL      SerialUSB
 #define SERIAL_PORT_MONITOR         SerialUSB
-// Serial has no physical pins broken out, so it's not listed as HARDWARE port
-#define SERIAL_PORT_HARDWARE        Serial1
-#define SERIAL_PORT_HARDWARE_OPEN   Serial1
+#define SERIAL_PORT_HARDWARE        Serial
+#define SERIAL_PORT_HARDWARE_OPEN   Serial
 
 #endif /* _VARIANT_ATMEL_SAMW25_XPRO_ */
 
