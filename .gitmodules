@@ -1,0 +1,3 @@
+[submodule "WiFi_W25"]
+	path = module/libraries/WiFi_W25
+	url = git@github.com:arduino-libraries/WiFi101.git
