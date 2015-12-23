@@ -27,7 +27,7 @@
 #define VARIANT_MAINOSC		(32768ul)
 
 /** Master clock frequency */
-#define VARIANT_MCK			  (48000000ul)
+#define VARIANT_MCK		    (48000000ul)
 
 /*----------------------------------------------------------------------------
  *        Headers
@@ -51,7 +51,7 @@ extern "C"
  *----------------------------------------------------------------------------*/
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (52ul)
+#define PINS_COUNT           (53ul)
 #define NUM_DIGITAL_PINS     (22ul)
 #define NUM_ANALOG_INPUTS    (6ul)
 #define NUM_ANALOG_OUTPUTS   (1ul)
@@ -92,7 +92,7 @@ extern "C"
 #define PIN_A1               (23ul)
 #define PIN_A2               (24ul)
 #define PIN_A3               (25ul)
-#define PIN_A4               (26ul)
+#define PIN_A4               (26ul) // is also analog output (DAC)
 #define PIN_A5               (27ul)
 
 static const uint8_t A0  = PIN_A0 ;
@@ -157,8 +157,8 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#define PIN_WIRE_SDA         (33ul)
 #define PIN_WIRE_SCL         (32ul)
+#define PIN_WIRE_SDA         (33ul)
 #define PERIPH_WIRE          sercom2
 #define WIRE_IT_HANDLER      SERCOM2_Handler
 
@@ -168,6 +168,8 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define PIN_USB_DP           (49ul)
 #define PIN_USB_DM           (50ul)
 #define PIN_USB_HOST_ENABLE  (51ul)
+#define PIN_USB_VBUS         PIN_USB_HOST_ENABLE
+#define PIN_USB_ID           (52ul)
 
 #ifdef __cplusplus
 }
