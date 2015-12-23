@@ -99,8 +99,8 @@ static const uint8_t A1  = PIN_A1 ;
  * Serial interfaces
  */
 // Serial (EDBG)
-#define PIN_SERIAL_RX       (28ul)
-#define PIN_SERIAL_TX       (29ul)
+#define PIN_SERIAL_RX       (12ul)
+#define PIN_SERIAL_TX       (13ul)
 #define PAD_SERIAL_RX       (SERCOM_RX_PAD_3)
 #define PAD_SERIAL_TX       (UART_TX_PAD_2)
 
@@ -220,4 +220,3 @@ extern Uart Serial;
 #define SERIAL_PORT_HARDWARE_OPEN   Serial
 
 #endif /* _VARIANT_ATMEL_SAMW25_XPRO_ */
-
