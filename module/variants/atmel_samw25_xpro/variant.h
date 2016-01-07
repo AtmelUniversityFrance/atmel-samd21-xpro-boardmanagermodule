@@ -186,9 +186,7 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 extern SERCOM sercom0;
 extern SERCOM sercom1;
 extern SERCOM sercom2;
-//extern SERCOM sercom3;
 extern SERCOM sercom4;
-//extern SERCOM sercom5;
 
 extern Uart Serial;
 
