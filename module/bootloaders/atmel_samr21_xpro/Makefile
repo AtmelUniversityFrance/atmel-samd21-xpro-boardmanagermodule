@@ -20,15 +20,15 @@ ifeq ($(OS),Windows_NT)
 
   # Are we using mingw/msys/msys2/cygwin?
   ifeq ($(TERM),xterm)
-#		T=$(shell cygpath -u $(LOCALAPPDATA))
-		T=$(shell cygpath -u $(APPDATA))
+		T=$(shell cygpath -u $(LOCALAPPDATA))
+#		T=$(shell cygpath -u $(APPDATA))
     MODULE_PATH?=$(T)/Arduino15/packages/arduino
     ARM_GCC_PATH?=$(MODULE_PATH)/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/arm-none-eabi-
     RM=rm
     SEP=/
   else
-#    MODULE_PATH?=$(LOCALAPPDATA)/Arduino15/packages/arduino
-    MODULE_PATH?=$(APPDATA)/Arduino15/packages/arduino
+    MODULE_PATH?=$(LOCALAPPDATA)/Arduino15/packages/arduino
+#    MODULE_PATH?=$(APPDATA)/Arduino15/packages/arduino
     ARM_GCC_PATH?=$(MODULE_PATH)/tools/arm-none-eabi-gcc/4.8.3-2014q1/bin/arm-none-eabi-
     RM=rm
     SEP=\\
@@ -69,7 +69,8 @@ CFLAGS+=-g3 -O1 -DDEBUG=1
 else
 CFLAGS+=-Os -DDEBUG=0
 endif
-CFLAGS_EXTRA?=-D__SAMR21G18A__ -DUSB_PID_LOW=0x24 -DUSB_PID_HIGH=0x61 -DUSB_VID_LOW=0xEB -DUSB_VID_HIGH=0x03
+# we put here the Atmel SAM-BA USB VID/PID and remove the support of Serial, because Serial pins are different than Zero ones
+CFLAGS_EXTRA?=-D__SAMR21G18A__ -DUSB_PID_LOW=0x24 -DUSB_PID_HIGH=0x61 -DUSB_VID_LOW=0xEB -DUSB_VID_HIGH=0x03 -DSAM_BA_INTERFACE=2
 INCLUDES=-I"$(MODULE_PATH)/tools/CMSIS/4.0.0-atmel/CMSIS/Include/" -I"$(MODULE_PATH)/tools/CMSIS/4.0.0-atmel/Device/ATMEL/"
 
 # -----------------------------------------------------------------------------
@@ -81,7 +82,7 @@ LDFLAGS+=-Wl,--warn-common -Wl,--warn-section-align -Wl,--warn-unresolved-symbol
 # Source files and objects
 # this path has to be updated if Arduino delivers any samd-core update!
 PROJECT_PATH=$(MODULE_PATH)/hardware/samd/1.6.2/bootloaders/zero
-SOURCES= \
+SOURCES_ORIG= \
 board_driver_led.c \
 board_driver_serial.c \
 board_driver_usb.c \
@@ -93,8 +94,9 @@ sam_ba_cdc.c \
 sam_ba_monitor.c \
 sam_ba_serial.c
 
-VPATH=$(PROJECT_PATH)
-OBJECTS=$(addprefix $(BUILD_PATH)/, $(SOURCES:.c=.o))
+#VPATH=$(PROJECT_PATH)
+SOURCES=$(addprefix $(PROJECT_PATH)/,$(SOURCES_ORIG))
+OBJECTS=$(addprefix $(BUILD_PATH)/,$(SOURCES_ORIG:.c=.o))
 #DEPS=$(addprefix $(BUILD_PATH)/, $(SOURCES:.c=.d))
 
 NAME=samd21_sam_ba
@@ -110,7 +112,7 @@ AS_BUILD=
 AS_CLEAN=
 endif
 
-all: print_info $(SOURCES) $(BIN) $(HEX) $(AS_BUILD)
+all: print_info $(BIN) $(HEX) $(AS_BUILD)
 
 $(ELF): Makefile $(BUILD_PATH) $(OBJECTS)
 	@echo ----------------------------------------------------------
@@ -129,7 +131,9 @@ $(HEX): $(ELF)
 	@echo Creating flash binary
 	"$(OBJCOPY)" -O ihex $(BUILD_PATH)/$< $@
 
-$(BUILD_PATH)/%.o: %.c
+$(BUILD_PATH)/%.o: $(BUILD_PATH)
+
+$(BUILD_PATH)/%.o: $(PROJECT_PATH)/%.c
 	@echo ----------------------------------------------------------
 	@echo Compiling $< to $@
 	"$(CC)" $(CFLAGS) $(CFLAGS_EXTRA) $(INCLUDES) "$<" -o $@
@@ -146,13 +150,16 @@ print_info:
 	@echo BASE PATH = $(MODULE_PATH)
 	@echo GCC  PATH = $(ARM_GCC_PATH)
 	@echo PROJ PATH = $(PROJECT_PATH)
-#	@echo SRC       = $(SOURCES)
-#	@echo OBJ       = $(OBJECTS)
+	@echo SRC_ORIG  = $(SOURCES_ORIG)
+	@echo SRC       = $(SOURCES)
+	@echo OBJ       = $(OBJECTS)
 #	@echo OS        = $(OS)
 #	@echo SHELL     = $(SHELL)
 #	@echo TERM      = $(TERM)
-#	"$(CC)" -v
+	"$(CC)" -v
+	"$(MAKE)" -v
 #	env
+	@echo ----------------------------------------------------------
 
 copy_for_atmel_studio: $(BIN) $(HEX)
 	@echo ----------------------------------------------------------
@@ -167,9 +174,9 @@ clean_for_atmel_studio:
 clean: $(AS_CLEAN)
 	@echo ----------------------------------------------------------
 	@echo Cleaning project
-	-$(RM) $(BIN)
-	-$(RM) $(HEX)
-	-$(RM) $(BUILD_PATH)/*.*
+	-$(RM) -f $(BIN)
+	-$(RM) -f $(HEX)
+	-$(RM) -f $(BUILD_PATH)/*
 	-rmdir $(BUILD_PATH)
 
-.phony: print_info $(BUILD_PATH)
+.PHONY: print_info $(BUILD_PATH) clean_for_atmel_studio
