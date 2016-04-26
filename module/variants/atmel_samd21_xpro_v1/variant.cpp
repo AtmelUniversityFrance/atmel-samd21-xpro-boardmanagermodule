@@ -31,8 +31,8 @@ const PinDescription g_APinDescription[]=
  * | 1          |                  |  PB08  | EXT1_14         | EIC/EXTINT[8] ADC/AIN[2] PTC/Y[14] *SERCOM4_ALT/PAD[0] TC4/WO[0]
  * +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  */
-  { PORTB,  9, PIO_SERCOM, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 }, // RX: SERCOM4/PAD[1]
-  { PORTB,  8, PIO_SERCOM, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10 }, // TX: SERCOM4/PAD[0]
+  { PORTB,  9, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_11 }, // RX: SERCOM4/PAD[1]
+  { PORTB,  8, PIO_SERCOM_ALT, PIN_ATTR_DIGITAL, No_ADC_Channel, NOT_ON_PWM, NOT_ON_TIMER, EXTERNAL_INT_10 }, // TX: SERCOM4/PAD[0]
 
 /* +------------+------------------+--------+-----------------+--------------------------------------------------------------------------------------------------------
  * | Pin number | LEDs & button    |  PIN   | Label/Name      | Comments (* is for default peripheral in use)
