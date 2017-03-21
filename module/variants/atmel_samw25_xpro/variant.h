@@ -27,7 +27,7 @@
 #define VARIANT_MAINOSC		(32768ul)
 
 /** Master clock frequency */
-#define VARIANT_MCK			  (48000000ul)
+#define VARIANT_MCK		    (48000000ul)
 
 /*----------------------------------------------------------------------------
  *        Headers
@@ -79,6 +79,7 @@ extern "C"
 // LED(s)
 #define PIN_LED_13           (2ul)
 #define PIN_LED              PIN_LED_13
+#define PIN_LED0             PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
 
 // Button(s)
@@ -98,7 +99,7 @@ static const uint8_t A1  = PIN_A1 ;
 /*
  * Serial interfaces
  */
-// Serial (EDBG)
+// Serial (EDBG and EXT1 port)
 #define PIN_SERIAL_RX       (12ul)
 #define PIN_SERIAL_TX       (13ul)
 #define PAD_SERIAL_RX       (SERCOM_RX_PAD_3)
@@ -114,8 +115,8 @@ static const uint8_t A1  = PIN_A1 ;
 #define PIN_SPI_SCK          (18ul)
 #define PIN_SPI_SS           (19ul)
 #define PERIPH_SPI           sercom1
-#define PAD_SPI_TX           SPI_PAD_2_SCK_3
-#define PAD_SPI_RX           SERCOM_RX_PAD_0
+#define PAD_SPI_TX           SPI_PAD_0_SCK_1
+#define PAD_SPI_RX           SERCOM_RX_PAD_3
 
 static const uint8_t SS	  = PIN_SPI_SS ;
 static const uint8_t MOSI = PIN_SPI_MOSI ;
@@ -149,8 +150,8 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define PIN_WINC1500_SCK     (23ul)
 #define PIN_WINC1500_SS      (24ul)
 #define PERIPH_WINC1500      sercom2
-#define PAD_WINC1500_TX      SPI_PAD_2_SCK_3
-#define PAD_WINC1500_RX      SERCOM_RX_PAD_0
+#define PAD_WINC1500_TX      SPI_PAD_0_SCK_1
+#define PAD_WINC1500_RX      SERCOM_RX_PAD_3
 
 #define PIN_WINC1500_IRQN    (25ul)
 #define PIN_WINC1500_WAKE    (26ul)
@@ -160,6 +161,8 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define WINC1501_RESET_PIN   PIN_WINC1500_RESET
 #define WINC1501_INTN_PIN    PIN_WINC1500_IRQN
 #define WINC1501_CHIP_EN_PIN PIN_WINC1500_CHIP_EN
+#define WINC1501_SPI         SPI1
+#define WINC1501_SPI_CS_PIN  PIN_SPI1_SS
 
 #define PIN_SPI1_MOSI        PIN_WINC1500_MOSI
 #define PIN_SPI1_MISO        PIN_WINC1500_MISO
