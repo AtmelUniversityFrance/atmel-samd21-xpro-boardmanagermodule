@@ -69,7 +69,8 @@ CFLAGS+=-g3 -O1 -DDEBUG=1
 else
 CFLAGS+=-Os -DDEBUG=0
 endif
-CFLAGS_EXTRA?=-D__SAMD21J18A__ -DUSB_PID_LOW=0x24 -DUSB_PID_HIGH=0x61 -DUSB_VID_LOW=0xEB -DUSB_VID_HIGH=0x03
+# we put here the Atmel SAM-BA USB VID/PID and remove the support of Serial, because Serial pins are different than Zero ones
+CFLAGS_EXTRA?=-D__SAMD21J18A__ -DUSB_PID_LOW=0x24 -DUSB_PID_HIGH=0x61 -DUSB_VID_LOW=0xEB -DUSB_VID_HIGH=0x03 -DSAM_BA_INTERFACE=2
 INCLUDES=-I"$(MODULE_PATH)/tools/CMSIS/4.0.0-atmel/CMSIS/Include/" -I"$(MODULE_PATH)/tools/CMSIS/4.0.0-atmel/Device/ATMEL/"
 
 # -----------------------------------------------------------------------------
@@ -130,7 +131,9 @@ $(HEX): $(ELF)
 	@echo Creating flash binary
 	"$(OBJCOPY)" -O ihex $(BUILD_PATH)/$< $@
 
-$(BUILD_PATH)/%.o: $(BUILD_PATH) $(PROJECT_PATH)/%.c
+$(BUILD_PATH)/%.o: $(BUILD_PATH)
+
+$(BUILD_PATH)/%.o: $(PROJECT_PATH)/%.c
 	@echo ----------------------------------------------------------
 	@echo Compiling $< to $@
 	"$(CC)" $(CFLAGS) $(CFLAGS_EXTRA) $(INCLUDES) "$<" -o $@
