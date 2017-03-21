@@ -16,8 +16,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_ATMEL_SAMD21_XPRO_V1_
-#define _VARIANT_ATMEL_SAMD21_XPRO_V1_
+#ifndef _VARIANT_ATMEL_SAMD21_XPRO_
+#define _VARIANT_ATMEL_SAMD21_XPRO_
 
 /*----------------------------------------------------------------------------
  *        Definitions
@@ -79,6 +79,7 @@ extern "C"
 // LED(s)
 #define PIN_LED_13           (2ul)
 #define PIN_LED              PIN_LED_13
+#define PIN_LED0             PIN_LED_13
 #define LED_BUILTIN          PIN_LED_13
 
 // Button(s)
@@ -152,6 +153,14 @@ static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
 
+// Needed for WINC1501B (WiFi101) library (plugged to port EXT2)
+// --------------------------------------
+#define WINC1501_RESET_PIN   (8ul)
+#define WINC1501_CHIP_EN_PIN (11ul)
+#define WINC1501_INTN_PIN    (10ul)
+#define WINC1501_SPI         SPI1
+#define WINC1501_SPI_CS_PIN  PIN_SPI1_SS
+
 /*
  * Wire Interfaces
  */
@@ -217,5 +226,5 @@ extern Uart Serial;
 #define SERIAL_PORT_HARDWARE        Serial1
 #define SERIAL_PORT_HARDWARE_OPEN   Serial1
 
-#endif /* _VARIANT_ATMEL_SAMD21_XPRO_V1_ */
+#endif /* _VARIANT_ATMEL_SAMD21_XPRO_ */
 
